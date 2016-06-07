@@ -31,3 +31,9 @@ build() {
 
 	make DESTDIR="$startdir/pkg" install
 }
+
+package() {
+        cd "${srcdir}/${_pkgbasename}-${pkgver}"
+     
+        install -v -m 0755 -D libasound_module_pcm_equal.so ${pkgdir}/usr/lib32/alsa-lib/libasound_module_pcm_equal.so
+}
